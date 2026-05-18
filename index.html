@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Production Ready with AI — Sunday Cohort for B.Tech / BCA / M.Tech / MCA</title>
+<meta name="description" content="Become production-ready with AI. Sunday 2-hour live online classes for B.Tech, BCA, M.Tech, MCA students. Build & deploy websites, apps, games using Claude, Lovable, Cursor, Replit, GitHub, Railway, ChatGPT, Gemini and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root{
+    --bg:#0a0a1a; --bg-2:#0f0f25; --surface:#141432; --surface-2:#1a1a3e;
+    --border:rgba(255,255,255,0.08); --text:#f1f5ff; --muted:#9aa3c7;
+    --primary:#7c5cff; --accent:#22d3ee; --accent-2:#f0d78c; --success:#34d399;
+    --grad: linear-gradient(135deg,#7c5cff 0%,#22d3ee 100%);
+    --shadow: 0 20px 60px -20px rgba(124,92,255,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:600;border:none;cursor:pointer;font-size:.95rem;transition:transform .2s ease,box-shadow .2s ease,background .2s;font-family:inherit}
+  .btn-primary{background:var(--grad);color:#0a0a1a;box-shadow:var(--shadow)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn-ghost:hover{background:var(--surface)}
+  .btn-wa{background:#25D366;color:#0a0a1a}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(37,211,102,.6)}
+
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,10,26,.7);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem}
+  .logo-mark{width:38px;height:38px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#0a0a1a;font-weight:800}
+  .nav-links{display:none;gap:28px;font-size:.95rem;color:var(--muted)}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .menu-btn{display:block;background:transparent;border:1px solid var(--border);color:var(--text);padding:.55rem .7rem;border-radius:10px;cursor:pointer}
+  @media(min-width:900px){ .nav-links{display:flex} .menu-btn{display:none} }
+
+  .hero{position:relative;padding:90px -1px 80px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:600px;height:600px;background:radial-gradient(closest-side,rgba(124,92,255,.35),transparent 70%);filter:blur(20px);z-index:0}
+  .hero::after{content:"";position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(closest-side,rgba(34,211,238,.25),transparent 70%);filter:blur(20px);z-index:0}
+  .hero-grid{position:relative;z-index:1;display:grid;gap:50px;align-items:center;grid-template-columns:1fr}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.3);color:#c7bfff;font-size:.82rem;font-weight:500;margin-bottom:18px}
+  .eyebrow .dot{width:8px;height:8px;background:var(--success);border-radius:50%;box-shadow:0 0 12px var(--success)}
+  .hero h1{font-size:clamp(2.1rem,5vw,3.6rem);letter-spacing:-.02em}
+  .hero p.lead{margin-top:18px;color:var(--muted);font-size:1.05rem;max-width:560px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;max-width:520px}
+  .stat{background:var(--surface);border:1px solid var(--border);padding:14px;border-radius:14px}
+  .stat b{font-family:'Space Grotesk';font-size:1.35rem;display:block}
+  .stat span{font-size:.78rem;color:var(--muted)}
+
+  .hero-card{background:linear-gradient(160deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--border);border-radius:24px;padding:26px;box-shadow:var(--shadow)}
+  .hero-card h4{font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .tools-cloud{display:flex;flex-wrap:wrap;gap:10px}
+  .tool-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:8px 12px;border-radius:999px;font-size:.85rem;transition:transform .2s,border-color .2s}
+  .tool-chip:hover{transform:translateY(-2px);border-color:var(--primary)}
+  .tool-chip i{color:var(--accent)}
+
+  section.block{padding:80px 0;position:relative}
+  .sec-head{text-align:center;max-width:760px;margin:0 auto 50px}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.01em}
+  .sec-head p{color:var(--muted);margin-top:12px}
+
+  .journey{position:relative;display:grid;gap:24px}
+  .chapter{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px;display:grid;gap:14px;grid-template-columns:64px 1fr;align-items:start;transition:transform .25s,border-color .25s}
+  .chapter:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.5)}
+  .chapter .num{width:64px;height:64px;border-radius:16px;background:var(--grad);display:grid;place-items:center;color:#0a0a1a;font-weight:800;font-size:1.4rem;font-family:'Space Grotesk'}
+  .chapter h3{font-size:1.2rem;margin-bottom:4px}
+  .chapter p{color:var(--muted);font-size:.95rem}
+  .chapter ul{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+  .chapter ul li{font-size:.78rem;background:rgba(124,92,255,.1);color:#cdc4ff;padding:4px 10px;border-radius:999px;border:1px solid rgba(124,92,255,.25)}
+  @media(min-width:760px){.journey{grid-template-columns:1fr 1fr;gap:22px}}
+
+  .build-grid{display:grid;gap:22px;grid-template-columns:1fr}
+  @media(min-width:700px){.build-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.build-grid{grid-template-columns:repeat(4,1fr)}}
+  .build-card{background:linear-gradient(160deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:18px;padding:22px;transition:transform .25s}
+  .build-card:hover{transform:translateY(-6px)}
+  .build-icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:rgba(34,211,238,.12);color:var(--accent);font-size:1.3rem;margin-bottom:14px}
+  .build-card h4{font-size:1.05rem;margin-bottom:6px}
+  .build-card p{color:var(--muted);font-size:.88rem}
+
+  .venn-wrap{display:grid;gap:36px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:900px){.venn-wrap{grid-template-columns:1fr 1fr}}
+  .venn{position:relative;width:100%;max-width:460px;aspect-ratio:1/1;margin:0 auto}
+  .circle{position:absolute;width:62%;height:62%;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:600;font-family:'Space Grotesk';mix-blend-mode:screen;border:1px solid rgba(255,255,255,.15);padding:14px;font-size:.95rem}
+  .c1{background:rgba(124,92,255,.55);top:0;left:19%}
+  .c2{background:rgba(34,211,238,.55);bottom:0;left:0}
+  .c3{background:rgba(240,215,140,.55);bottom:0;right:0;color:#0a0a1a}
+  .venn-legend{display:grid;gap:14px}
+  .legend-item{display:flex;gap:14px;align-items:flex-start}
+  .legend-dot{width:14px;height:14px;border-radius:50%;margin-top:6px;flex-shrink:0}
+  .legend-item h5{font-family:'Space Grotesk';font-size:1rem;margin-bottom:2px}
+  .legend-item p{color:var(--muted);font-size:.88rem}
+
+  .schedule{background:linear-gradient(135deg,rgba(124,92,255,.15),rgba(34,211,238,.1));border:1px solid var(--border);border-radius:24px;padding:30px;display:grid;gap:20px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:800px){.schedule{grid-template-columns:auto 1fr auto;gap:30px}}
+  .sched-icon{width:64px;height:64px;border-radius:18px;background:var(--grad);display:grid;place-items:center;color:#0a0a1a;font-size:1.6rem}
+  .schedule h3{font-size:1.3rem}
+  .schedule p{color:var(--muted);font-size:.92rem;margin-top:4px}
+
+  .trainer{background:linear-gradient(160deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:24px;padding:34px;display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:800px){.trainer{grid-template-columns:240px 1fr}}
+  .trainer-avatar{width:220px;height:220px;border-radius:50%;margin:0 auto;background:var(--grad);display:grid;place-items:center;font-family:'Space Grotesk';font-size:4rem;color:#0a0a1a;font-weight:800;box-shadow:var(--shadow);position:relative}
+  .trainer-avatar::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px dashed rgba(255,255,255,.25);animation:spin 18s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .trainer h3{font-size:1.5rem}
+  .trainer .role{color:var(--accent);font-weight:500;margin-top:4px}
+  .trainer p.bio{color:var(--muted);margin-top:14px;font-size:.95rem}
+  .trainer-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .trainer-tags span{background:rgba(255,255,255,.05);border:1px solid var(--border);padding:6px 12px;border-radius:999px;font-size:.78rem;color:var(--muted)}
+
+  .outcomes{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:700px){.outcomes{grid-template-columns:repeat(3,1fr)}}
+  .outcome{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;gap:14px;align-items:flex-start}
+  .outcome i{width:42px;height:42px;border-radius:10px;background:rgba(52,211,153,.12);color:var(--success);display:grid;place-items:center;flex-shrink:0}
+  .outcome h4{font-size:1rem;margin-bottom:4px}
+  .outcome p{color:var(--muted);font-size:.85rem}
+
+  .enroll{background:linear-gradient(160deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--border);border-radius:24px;padding:36px;display:grid;gap:30px;grid-template-columns:1fr}
+  @media(min-width:900px){.enroll{grid-template-columns:1fr 1.1fr}}
+  .enroll-info h3{font-size:1.6rem;margin-bottom:10px}
+  .enroll-info p{color:var(--muted)}
+  .wa-box{margin-top:22px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center}
+  .wa-box i{font-size:2rem;color:#25D366}
+  .wa-box b{display:block;font-family:'Space Grotesk'}
+  .wa-box span{color:var(--muted);font-size:.85rem}
+  form{display:grid;gap:14px}
+  .row{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:560px){.row{grid-template-columns:1fr 1fr}}
+  .field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:500}
+  .field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.95rem;transition:border-color .2s,background .2s}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--primary);background:rgba(124,92,255,.06)}
+  .field textarea{resize:vertical;min-height:90px}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center}
+
+  .faq{display:grid;gap:12px;max-width:780px;margin:0 auto}
+  .faq details{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+  .faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent);font-size:1.4rem;transition:transform .2s}
+  .faq details[open] summary::after{content:"−"}
+  .faq details p{margin-top:10px;color:var(--muted);font-size:.92rem}
+
+  footer{border-top:1px solid var(--border);padding:50px 0 30px;margin-top:40px;background:var(--bg-2)}
+  .foot-grid{display:grid;gap:30px;grid-template-columns:1fr;margin-bottom:30px}
+  @media(min-width:700px){.foot-grid{grid-template-columns:2fr 1fr 1fr}}
+  .foot-grid h5{font-family:'Space Grotesk';margin-bottom:14px;font-size:1rem}
+  .foot-grid p,.foot-grid a{color:var(--muted);font-size:.9rem;display:block;margin-bottom:8px}
+  .foot-grid a:hover{color:var(--text)}
+  .socials{display:flex;gap:10px;margin-top:12px}
+  .socials a{width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;color:var(--muted)}
+  .socials a:hover{color:var(--accent);border-color:var(--accent)}
+  .copyright{text-align:center;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem}
+
+  .fab{position:fixed;right:20px;bottom:20px;z-index:60;background:#25D366;color:#0a0a1a;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .2s}
+  .fab:hover{transform:scale(1.08)}
+
+  .mobile-panel{position:fixed;inset:0;background:rgba(10,10,26,.96);backdrop-filter:blur(20px);z-index:55;display:none;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+  .mobile-panel.open{display:flex}
+  .mobile-panel a{font-size:1.2rem;font-family:'Space Grotesk'}
+  .mobile-panel .close{position:absolute;top:20px;right:20px;background:transparent;border:1px solid var(--border);color:var(--text);width:42px;height:42px;border-radius:12px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">AI</span>
+      <span>Ram<span class="grad-text">Sir</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#journey">Journey</a>
+      <a href="#build">What You'll Build</a>
+      <a href="#tools">Tools</a>
+      <a href="#trainer">Trainer</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#enroll" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Enroll</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <button class="close" id="closeBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#journey">Journey</a>
+  <a href="#build">What You'll Build</a>
+  <a href="#tools">Tools</a>
+  <a href="#trainer">Trainer</a>
+  <a href="#faq">FAQ</a>
+  <a href="#enroll" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Enroll Now</a>
+</div>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Sunday Cohort • 2 hours • Online + Recordings</span>
+      <h1>Become a <span class="grad-text">Production-Ready</span> Engineer using AI — while you finish college.</h1>
+      <p class="lead">A focused weekend program for <b>B.Tech, BCA, M.Tech &amp; MCA</b> students. Build &amp; ship real websites, apps &amp; games using <b>Claude, Lovable, Cursor, Replit AI, ChatGPT, Gemini, GitHub &amp; Railway</b> — no clash with your college timetable.</p>
+      <div class="hero-ctas">
+        <a href="#enroll" class="btn btn-primary"><i class="fa-solid fa-graduation-cap"></i> Enroll for Sunday Batch</a>
+        <a href="https://wa.me/919753528324?text=Hi%2C%20I%20want%20to%20know%20more%20about%20the%20Production%20Ready%20with%20AI%20program." target="_blank" class="btn btn-ghost"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>10+</b><span>AI tools mastered</span></div>
+        <div class="stat"><b>12</b><span>Real projects shipped</span></div>
+        <div class="stat"><b>Sun</b><span>2 hours / week</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4><i class="fa-solid fa-toolbox" style="color:var(--accent)"></i> Your AI Tool Stack</h4>
+      <div class="tools-cloud">
+        <span class="tool-chip"><i class="fa-solid fa-robot"></i> Claude</span>
+        <span class="tool-chip"><i class="fa-solid fa-heart"></i> Lovable</span>
+        <span class="tool-chip"><i class="fa-solid fa-code"></i> Cursor</span>
+        <span class="tool-chip"><i class="fa-solid fa-bolt"></i> Replit AI</span>
+        <span class="tool-chip"><i class="fa-solid fa-comments"></i> ChatGPT</span>
+        <span class="tool-chip"><i class="fa-solid fa-gem"></i> Gemini</span>
+        <span class="tool-chip"><i class="fa-solid fa-video"></i> Google Flow</span>
+        <span class="tool-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+        <span class="tool-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+        <span class="tool-chip"><i class="fa-solid fa-train"></i> Railway</span>
+        <span class="tool-chip"><i class="fa-solid fa-cloud"></i> Vercel</span>
+        <span class="tool-chip"><i class="fa-solid fa-database"></i> Supabase</span>
+      </div>
+      <div style="margin-top:20px;padding:14px;background:rgba(34,211,238,.08);border:1px dashed rgba(34,211,238,.3);border-radius:12px;font-size:.85rem;color:#bef3ff">
+        <i class="fa-solid fa-lightbulb"></i> <b>End result:</b> a portfolio of <b>live, deployed projects</b> you can show in interviews &amp; internships.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="journey">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-map"></i> The Journey</span>
+      <h2>From "I know syntax" to <span class="grad-text">"I shipped a product"</span></h2>
+      <p>An 8-chapter weekend journey. Every Sunday you finish college work + 2 hours here = a real, deployed project in your portfolio.</p>
+    </div>
+    <div class="journey">
+      <div class="chapter"><div class="num">01</div><div><h3>AI Foundations &amp; Mindset</h3><p>How to think with AI. Prompting that actually works. Picking the right tool for the job (Claude vs ChatGPT vs Gemini).</p><ul><li>Prompt patterns</li><li>Tool selection</li><li>AI workflows</li></ul></div></div>
+      <div class="chapter"><div class="num">02</div><div><h3>Build a Website with Lovable</h3><p>Design, build &amp; deploy a complete responsive website using Lovable — without writing a single line manually.</p><ul><li>Lovable</li><li>Design system</li><li>Live deploy</li></ul></div></div>
+      <div class="chapter"><div class="num">03</div><div><h3>Full-Stack App with Cursor + Claude</h3><p>Use Cursor + Claude to build a real full-stack app: auth, database, API &amp; UI — production grade.</p><ul><li>Cursor</li><li>Claude</li><li>Supabase</li></ul></div></div>
+      <div class="chapter"><div class="num">04</div><div><h3>Game Dev with AI</h3><p>Build a playable browser game with Replit AI — physics, levels, scoring &amp; sound.</p><ul><li>Replit AI</li><li>Canvas / Phaser</li><li>Game logic</li></ul></div></div>
+      <div class="chapter"><div class="num">05</div><div><h3>Git, GitHub &amp; Version Control</h3><p>How real teams work. Branches, PRs, code reviews &amp; open-source contribution to boost your resume.</p><ul><li>Git</li><li>GitHub</li><li>Open source</li></ul></div></div>
+      <div class="chapter"><div class="num">06</div><div><h3>Deploy to Production</h3><p>Ship to Railway, Vercel &amp; custom domains. Environment variables, logs &amp; rollback like a pro.</p><ul><li>Railway</li><li>Vercel</li><li>CI/CD</li></ul></div></div>
+      <div class="chapter"><div class="num">07</div><div><h3>Media &amp; Content with AI</h3><p>Generate videos, images &amp; marketing content with Google Flow, Gemini &amp; ChatGPT for your product launch.</p><ul><li>Google Flow</li><li>Gemini</li><li>Content</li></ul></div></div>
+      <div class="chapter"><div class="num">08</div><div><h3>Internship &amp; Job Strategy</h3><p>How to pitch, cold-email &amp; approach companies. LinkedIn that converts. Interview prep using AI mocks.</p><ul><li>LinkedIn</li><li>Cold outreach</li><li>Interview prep</li></ul></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="build" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-cube"></i> Real Output</span>
+      <h2>What you'll <span class="grad-text">actually ship</span></h2>
+      <p>Theory is cheap. By the end of the program you'll have these live links on your portfolio.</p>
+    </div>
+    <div class="build-grid">
+      <div class="build-card"><div class="build-icon"><i class="fa-solid fa-globe"></i></div><h4>Live Website</h4><p>Personal / startup landing page deployed on a custom domain.</p></div>
+      <div class="build-card"><div class="build-icon"><i class="fa-solid fa-mobile-screen"></i></div><h4>Web App</h4><p>Full-stack app with login, database &amp; dashboard — production ready.</p></div>
+      <div class="build-card"><div class="build-icon"><i class="fa-solid fa-gamepad"></i></div><h4>Browser Game</h4><p>A playable game you built end-to-end using AI tools.</p></div>
+      <div class="build-card"><div class="build-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h4>AI Product</h4><p>Mini SaaS using AI APIs — chatbot, generator or analyzer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="tools">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-diagram-project"></i> The AI Ecosystem</span>
+      <h2>Three circles. <span class="grad-text">One unstoppable engineer.</span></h2>
+      <p>You'll master the intersection of building, shipping &amp; marketing — the trio every modern engineer needs.</p>
+    </div>
+    <div class="venn-wrap">
+      <div class="venn" aria-hidden="true">
+        <div class="circle c1">Build<br><small style="font-weight:400;opacity:.85">Lovable · Cursor · Claude</small></div>
+        <div class="circle c2">Ship<br><small style="font-weight:400;opacity:.85">Git · GitHub · Railway</small></div>
+        <div class="circle c3">Grow<br><small style="font-weight:400;opacity:.85">Gemini · Flow · ChatGPT</small></div>
+      </div>
+      <div class="venn-legend">
+        <div class="legend-item"><span class="legend-dot" style="background:#7c5cff"></span><div><h5>Build with AI</h5><p>Use Lovable, Cursor, Claude &amp; Replit AI to write production code 10× faster — even as a 2nd-year student.</p></div></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#22d3ee"></span><div><h5>Ship to Production</h5><p>Push to GitHub, deploy on Railway/Vercel, configure domains &amp; environments — your work becomes a real live link.</p></div></div>
+        <div class="legend-item"><span class="legend-dot" style="background:#f0d78c"></span><div><h5>Grow &amp; Get Hired</h5><p>Create launch videos with Google Flow, write outreach with ChatGPT, design with Gemini — and land internships.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="container">
+    <div class="schedule">
+      <div class="sched-icon"><i class="fa-solid fa-calendar-week"></i></div>
+      <div>
+        <h3>Every Sunday • 2 Hours • Live Online</h3>
+        <p>Zero clash with college. Live online meeting + recorded session always available. Doubt support throughout the week on WhatsApp.</p>
+      </div>
+      <a href="#enroll" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Reserve Seat</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="trainer" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-user-tie"></i> Meet Your Mentor</span>
+      <h2>Learn from someone who <span class="grad-text">ships every week</span></h2>
+    </div>
+    <div class="trainer">
+      <div class="trainer-avatar">RS</div>
+      <div>
+        <h3>Ram Sir</h3>
+        <div class="role">AI Product Engineer · Full-Stack Builder · Mentor</div>
+        <p class="bio">2+ years of building &amp; shipping production apps. Has helped <b>500+ engineering students</b> deploy their first real product and land internships at startups using AI workflows. Specialises in turning college students into <b>production-ready engineers</b> on weekends.</p>
+        <div class="trainer-tags">
+          <span><i class="fa-solid fa-check"></i> Lovable Expert</span>
+          <span><i class="fa-solid fa-check"></i> Claude / Cursor Power User</span>
+          <span><i class="fa-solid fa-check"></i> Open-Source Contributor</span>
+          <span><i class="fa-solid fa-check"></i> Hired by Top Startups</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-trophy"></i> Outcomes</span>
+      <h2>What changes after <span class="grad-text">8 Sundays</span></h2>
+    </div>
+    <div class="outcomes">
+      <div class="outcome"><i class="fa-solid fa-link"></i><div><h4>Live Portfolio</h4><p>4+ live, deployed projects with real domains to show recruiters.</p></div></div>
+      <div class="outcome"><i class="fa-solid fa-briefcase"></i><div><h4>Internship Ready</h4><p>Cold outreach playbook + LinkedIn rewrite + interview prep using AI.</p></div></div>
+      <div class="outcome"><i class="fa-solid fa-rocket"></i><div><h4>Ship Mindset</h4><p>You'll think like a builder — not just a student writing assignments.</p></div></div>
+      <div class="outcome"><i class="fa-brands fa-github"></i><div><h4>GitHub Profile</h4><p>Green-square commits, real PRs &amp; open-source contributions.</p></div></div>
+      <div class="outcome"><i class="fa-solid fa-video"></i><div><h4>Launch Videos</h4><p>AI-generated demos &amp; marketing assets for every project you ship.</p></div></div>
+      <div class="outcome"><i class="fa-solid fa-handshake"></i><div><h4>Community</h4><p>Lifetime WhatsApp community of serious builders &amp; job referrals.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="enroll" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="enroll">
+      <div class="enroll-info">
+        <span class="eyebrow"><i class="fa-solid fa-pen-to-square"></i> Enroll / Send Query</span>
+        <h3>Ready to become <span class="grad-text">production-ready?</span></h3>
+        <p>Fill the form — your details reach the mentor directly on WhatsApp. We respond personally. <b>Only serious students should apply.</b></p>
+        <div class="wa-box">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><b>+91 97535 28324</b><span>WhatsApp for fastest reply</span></div>
+        </div>
+        <div style="margin-top:20px;display:grid;gap:10px;color:var(--muted);font-size:.9rem">
+          <div><i class="fa-solid fa-check" style="color:var(--success)"></i> Sunday 2-hour live class</div>
+          <div><i class="fa-solid fa-check" style="color:var(--success)"></i> Lifetime recordings access</div>
+          <div><i class="fa-solid fa-check" style="color:var(--success)"></i> 1-on-1 doubt support</div>
+          <div><i class="fa-solid fa-check" style="color:var(--success)"></i> Internship &amp; job referral help</div>
+        </div>
+      </div>
+
+      <form id="enrollForm" onsubmit="return sendToWhatsApp(event)">
+        <div class="row">
+          <div class="field"><label>Full Name *</label><input type="text" name="name" required maxlength="80" placeholder="Your full name" /></div>
+          <div class="field"><label>Class / Year *</label>
+            <select name="course" required>
+              <option value="">Select</option>
+              <option>B.Tech – 1st Year</option>
+              <option>B.Tech – 2nd Year</option>
+              <option>B.Tech – 3rd Year</option>
+              <option>B.Tech – 4th Year</option>
+              <option>BCA – 1st Year</option>
+              <option>BCA – 2nd Year</option>
+              <option>BCA – 3rd Year</option>
+              <option>M.Tech</option>
+              <option>MCA</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Roll Number</label><input type="text" name="roll" maxlength="40" placeholder="University roll no." /></div>
+          <div class="field"><label>College Name *</label><input type="text" name="college" required maxlength="120" placeholder="Your college / university" /></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Your Mobile (WhatsApp) *</label><input type="tel" name="phone" required pattern="[0-9+ \-]{7,15}" placeholder="10-digit number" /></div>
+          <div class="field"><label>Parent's Mobile</label><input type="tel" name="parent" pattern="[0-9+ \-]{7,15}" placeholder="Parent's contact" /></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Email *</label><input type="email" name="email" required maxlength="120" placeholder="you@example.com" /></div>
+          <div class="field"><label>City / Address *</label><input type="text" name="address" required maxlength="160" placeholder="City, State" /></div>
+        </div>
+        <div class="field"><label>Your message / why you want to join</label><textarea name="message" maxlength="600" placeholder="Tell us about your goal — internship, startup idea, skills you want…"></textarea></div>
+        <button type="submit" class="btn btn-wa" style="justify-content:center;width:100%;padding:1.05rem">
+          <i class="fa-brands fa-whatsapp"></i> Send Enrollment on WhatsApp
+        </button>
+        <p class="form-note">By submitting you agree to be contacted on WhatsApp / phone regarding the program.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</span>
+      <h2>Quick <span class="grad-text">answers</span></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Will it clash with my college timetable?</summary><p>No. Classes happen <b>only on Sunday</b> for 2 hours, fully online. You can attend after your college week ends.</p></details>
+      <details><summary>I'm in 1st year, is this for me?</summary><p>Yes — earlier is better. The program is designed so even a 1st-year student can ship real products using AI tools.</p></details>
+      <details><summary>What if I miss a Sunday?</summary><p>Every session is <b>recorded</b> and shared. You'll never fall behind.</p></details>
+      <details><summary>Will I really get internship help?</summary><p>Yes — we teach the exact cold-outreach + LinkedIn + interview playbook that's helped 300+ students land roles.</p></details>
+      <details><summary>Do I need a powerful laptop?</summary><p>Any laptop that runs Chrome works. Most AI tools we use are cloud-based (Lovable, Replit, Claude, ChatGPT, Gemini).</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px"><span class="logo-mark">AI</span> <span>Ram<span class="grad-text">Sir</span></span></div>
+        <p>Helping B.Tech, BCA, M.Tech &amp; MCA students become production-ready engineers using AI — on weekends.</p>
+        <div class="socials">
+          <a href="https://wa.me/919753528324" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/iamramsir" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ramsirdevix" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/ramgopal-prajapati-b30237264/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="#journey">Journey</a>
+        <a href="#build">What You'll Build</a>
+        <a href="#tools">Tools</a>
+        <a href="#trainer">Trainer</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="https://wa.me/919753528324"><i class="fa-brands fa-whatsapp"></i> +91 97535 28324</a>
+        <a href="mailto:ramsirdevix@gmail.com"><i class="fa-solid fa-envelope"></i> rmsirdevix@gmail.com</a>
+        <a href="#enroll"><i class="fa-solid fa-rocket"></i> Enroll Now</a>
+      </div>
+    </div>
+    <div class="copyright">© <span id="yr"></span> Ram Sir · Built with ❤ for serious students.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919753528324?text=Hi%2C%20I%20want%20to%20join%20the%20Production%20Ready%20with%20AI%20program." class="fab" aria-label="WhatsApp" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const panel = document.getElementById('mobilePanel');
+  menuBtn.addEventListener('click', () => panel.classList.add('open'));
+  closeBtn.addEventListener('click', () => panel.classList.remove('open'));
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('open')));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function sendToWhatsApp(e){
+    e.preventDefault();
+    const f = e.target;
+    const g = (n) => (f[n]?.value || '').trim();
+    const msg =
+`*New Enrollment — Production Ready with AI*
+
+👤 *Name:* ${g('name')}
+🎓 *Class/Year:* ${g('course')}
+🆔 *Roll No:* ${g('roll') || '-'}
+🏫 *College:* ${g('college')}
+📞 *Mobile:* ${g('phone')}
+👨‍👩‍👦 *Parent Mobile:* ${g('parent') || '-'}
+📧 *Email:* ${g('email')}
+📍 *City/Address:* ${g('address')}
+
+💬 *Message:*
+${g('message') || '-'}`;
+    const url = `https://wa.me/919753528324?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    return false;
+  }
+</script>
+</body>
+</html>
